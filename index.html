@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+	<title>Document</title>
+</head>
+<body>
+	<input type="date" name="daterange" value="" />
+	<table id="table"></table>
+	<button onclick="exportTableToExcel()">Export To Excel</button>
+	<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+	<script type="text/javascript" src="auth.js"></script>
+	<script type="text/javascript" src="report.js"></script>
+	<script type="text/javascript" src="table.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
+
+<!-- function merchantItemUrl(){
+    return 'https://ecom.magnum.kz/core/adminapp/order/'
+}
+
+function parameters(pageId=0, pageSize=7073, stateGroupId='', startDate='', endDate=''){
+	return '?pageId=' + pageId + '&pageSize=' + pageSize + '&merchantId=&stateGroupId=' + stateGroupId + '&startDate=' + startDate + '&endDate=' + endDate + '&packerUserId=&courierId=&deliveryPeriodId=&activeRow=&externalId='
+}
+
+async function getOrders(path='', param=parameters()){
+	const requestURL = 'https://ecom.magnum.kz/auth/server/api/v1/security/staff/login'
+	json = {
+	    'phone': "77022150025",
+	    'password': "12345"
+	}
+	const response = await fetch(requestURL, {
+		method: 'POST',
+		headers: {
+        	"Accept": "application/json",
+        	"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.152 YaBrowser/21.2.3.100 Yowser/2.5 Safari/537.36"
+    	},
+		body: JSON.stringify(json)
+	})
+	const token = await response.json()
+	console.log(token)
+	url_orders = merchantItemUrl() + param;
+	
+	headers = {
+        "Accept": "application/json",
+        "Authorization": json,
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.152 YaBrowser/21.2.3.100 Yowser/2.5 Safari/537.36"
+    }
+	return fetch(url_orders, {
+		method: "GET",
+		headers: headers
+	}).then(response => {
+		if( response.ok ){
+			return response.json()
+		}
+
+	})
+}
+
+getOrders()
+	.then(data=> console.log(data))
+	.catch(err=> console.log(err))
+
+
+
+// def get_order(path, param=parameters()):
+//     import requests
+//     import json
+//     from web.report.auth import authorization
+//     from web.report.options import get_headers
+//     from web.report.options import merchantItemUrl
+//     token = authorization()
+//     url_orders = merchantItemUrl() + param
+//     response = requests.get(url=url_orders, headers=get_headers(str(token["token"]))).json()
+//     with open(path, 'w') as file:
+//         file.write(json.dumps(response.get("content"), indent=2, sort_keys=False))
+
+
+// def get_all_orders():
+//     get_order("sources/report.json")
+
+
+// def get_unchecked_orders(date=''):
+//     get_order("report_1.json", param=parameters(stateGroupId='-100', startDate=date, endDate=date))
+ -->
